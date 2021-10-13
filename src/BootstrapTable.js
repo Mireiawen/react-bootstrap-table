@@ -237,7 +237,7 @@ class BootstrapTable extends Component {
   }
 
   reset() {
-    const { pageStartIndex } = this.props.options;
+    const { pageStartIndex, sizePerPage, sortName, sortOrder } = this.props.options;
     this.store.clean();
     this.body.setState({ currEditCell: null });
     this.setState(() => {
@@ -245,7 +245,9 @@ class BootstrapTable extends Component {
         data: this.getTableData(),
         currPage: Util.getFirstPage(pageStartIndex),
         expanding: [],
-        sizePerPage: Const.SIZE_PER_PAGE_LIST[0],
+        sizePerPage: sizePerPage,
+        sortName: sortName,
+        sortOrder: sortOrder,
         selectedRowKeys: [],
         reset: true
       };
